@@ -25,45 +25,46 @@
         .file-icon {
             margin-right: 10px;
         }
+
+        #loading {
+            text-align: center;
+            padding: 20px;
+        }
     </style>
 </head>
 
 <body>
     <div id="breadcrumb"></div>
     <ul class="file-list" id="fileList"></ul>
+    <div id="loading">Loading...</div>
 
     <script>
-        const fileSystem = [
-            {
-                name: "files",
-                isdir: true,
-                contents: [
-                    {
-                        name: "510-200x200.jpg",
-                        isdir: false
-                    },
-                    {
-                        name: "765-200x200.jpg",
-                        isdir: false
-                    },
-                    {
-                        name: "test",
-                        isdir: true,
-                        contents: [
-                            {
-                                name: "591-200x200.jpg",
-                                isdir: false
-                            }
-                        ]
-                    }
-                ]
+        let fileSystem = null;
+
+        /**
+         * Load the file structure from JSON file
+         */
+        async function loadFileStructure() {
+            try {
+                const response = await fetch('files.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                fileSystem = await response.json();
+                document.getElementById('loading').style.display = 'none';
+                init(); // Initialize the viewer once data is loaded
+            } catch (error) {
+                console.error('Error loading file structure:', error);
+                document.getElementById('loading').textContent = 'Error loading file structure. Please check console for details.';
             }
-        ];
+        }
 
         /**
          * Find directory contents at given path
          */
         function findDirectoryContents(path) {
+            if (!fileSystem) return []; // Guard against null fileSystem
+
             if (path === '/' || path === '') {
                 return fileSystem[0].contents;
             }
@@ -153,8 +154,8 @@
         // listen for changes in the url hash
         window.addEventListener('hashchange', init);
 
-        // initial load
-        init();
+        // Start loading the file structure
+        loadFileStructure();
     </script>
 </body>
 
