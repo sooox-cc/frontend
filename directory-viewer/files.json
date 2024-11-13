@@ -1,0 +1,26 @@
+[
+    {
+        "name": "files",
+        "isdir": true,
+        "contents": [
+            {
+                "name": "510-200x200.jpg",
+                "isdir": false
+            },
+            {
+                "name": "765-200x200.jpg",
+                "isdir": false
+            },
+            {
+                "name": "test",
+                "isdir": true,
+                "contents": [
+                    {
+                        "name": "591-200x200.jpg",
+                        "isdir": false
+                    }
+                ]
+            }
+        ]
+    }
+]
