@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Files</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .file-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .file-item {
+            padding: 5px 0;
+        }
+
+        .file-icon {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="breadcrumb"></div>
+    <ul class="file-list" id="fileList"></ul>
+
+    <script>
+        const fileSystem = [
+            {
+                name: "files",
+                isdir: true,
+                contents: [
+                    {
+                        name: "510-200x200.jpg",
+                        isdir: false
+                    },
+                    {
+                        name: "765-200x200.jpg",
+                        isdir: false
+                    },
+                    {
+                        name: "test",
+                        isdir: true,
+                        contents: [
+                            {
+                                name: "591-200x200.jpg",
+                                isdir: false
+                            }
+                        ]
+                    }
+                ]
+            }
+        ];
+
+        /**
+         * Find directory contents at given path
+         */
+        function findDirectoryContents(path) {
+            if (path === '/' || path === '') {
+                return fileSystem[0].contents;
+            }
+
+            const parts = path.split('/').filter(part => part);
+            let current = fileSystem[0];
+
+            for (const part of parts) {
+                if (!current.contents) return [];
+                const found = current.contents.find(item => item.name === part);
+                if (!found || !found.isdir) return [];
+                current = found;
+            }
+
+            return current.contents || [];
+        }
+
+        /**
+         * get current path from the URL hash
+         */
+        function getCurrentPath() {
+            return window.location.hash.slice(1) || '/';
+        }
+
+        /**
+         * generate breadcrumb navigation
+         */
+        function generateBreadcrumb(path) {
+            const parts = path.split('/').filter(part => part);
+            let breadcrumb = '<a href="#/">home</a>';
+            let currentPath = '';
+
+            parts.forEach(part => {
+                currentPath += '/' + part;
+                breadcrumb += ` / <a href="#${currentPath}">${decodeURIComponent(part)}</a>`;
+            });
+
+            document.getElementById('breadcrumb').innerHTML = breadcrumb;
+        }
+
+        /**
+         * display content of current dir
+         */
+        function displayDirectory(path) {
+            const baseDir = 'files';
+            const fileList = document.getElementById('fileList');
+            fileList.innerHTML = '';
+
+            if (path !== '/') {
+                const parentPath = path.split('/').slice(0, -1).join('/');
+                fileList.innerHTML += `
+                    <li class="file-item">
+                        <a href="#${parentPath}">
+                            <span class="file-icon">📁</span>..
+                        </a>
+                    </li>
+                `;
+            }
+
+            const files = findDirectoryContents(path);
+
+            files.forEach(file => {
+                const icon = file.isdir ? '📁' : '📄';
+                const link = file.isdir ?
+                    `#${path}${path.endsWith('/') ? '' : '/'}${file.name}` :
+                    `${baseDir}${path}${path.endsWith('/') ? '' : '/'}${file.name}`;
+
+                fileList.innerHTML += `
+                    <li class="file-item">
+                        <a href="${file.isdir ? link : link}" ${!file.isdir ? 'target="_blank"' : ''}>
+                            <span class="file-icon">${icon}</span>${file.name}
+                        </a>
+                    </li>
+                `;
+            });
+        }
+
+        /**
+         * inits or updates dir viewer
+         */
+        function init() {
+            const currentPath = getCurrentPath();
+            generateBreadcrumb(currentPath);
+            displayDirectory(currentPath);
+        }
+
+        // listen for changes in the url hash
+        window.addEventListener('hashchange', init);
+
+        // initial load
+        init();
+    </script>
+</body>
+
+</html>
