@@ -20,7 +20,6 @@ A modern landing page hero section featuring:
 - Interactive chat interface
 - Terminal window simulation
 - Connected section design
-- View Details
 - [View Details](./mesh-gradient-hero/README.md)
 
 ## Project Structure
