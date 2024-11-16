@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Interface</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="grid-background"></div>
+
+    <nav>
+        <div class="logo">OSINT</div>
+        <div class="nav-links">
+            <a href="#">Industries</a>
+            <a href="#">Solutions</a>
+            <a href="#">Resources</a>
+            <a href="#">Training</a>
+            <a href="#">Pricing</a>
+        </div>
+        <div class="nav-buttons">
+            <button class="button button-login">Login</button>
+            <button class="button button-signup">Sign Up</button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="announcement-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="announcement-icon"
+                viewBox="0 0 16 16">
+                <path
+                    d="M2 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2M0 2a2 2 0 0 1 3.937-.5h8.126A2 2 0 1 1 14.5 3.937v8.126a2 2 0 1 1-2.437 2.437H3.937A2 2 0 1 1 1.5 12.063V3.937A2 2 0 0 1 0 2m2.5 1.937v8.126c.703.18 1.256.734 1.437 1.437h8.126a2 2 0 0 1 1.437-1.437V3.937A2 2 0 0 1 12.063 2.5H3.937A2 2 0 0 1 2.5 3.937M14 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2M2 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m12 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2" />
+            </svg>
+            <div class="announcement-text">
+                <p>This page was inspired by OSINT Industries</p>
+                <a href="https://app.osint.industries/" target="_blank" class="become-certified">Visit
+                    OSINT Industries</a>
+            </div>
+        </div>
+
+        <div class="search-section">
+            <div class="search-header">Search. Trace. Discover.</div>
+            <h1>Reveal what's behind<br>any contact, instantly.</h1>
+
+            <div class="search-tabs">
+                <div class="search-tab">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2">
+                        </path>
+                    </svg>
+                    Phone
+                </div>
+                <div class="search-tab active">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z">
+                        </path>
+                        <path d="M3 7l9 6l9 -6"></path>
+                    </svg>
+                    Email
+                </div>
+                <div class="search-tab">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="7" r="4"></circle>
+                        <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                    </svg>
+                    Username
+                </div>
+            </div>
+
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="sooox@cocaine.ninja">
+                <button class="search-button">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="M21 21l-4.35 -4.35"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="terms">
+                By selecting search you agree to our <a href="#">Terms of use</a>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
