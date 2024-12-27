@@ -2,7 +2,7 @@
 
 A modern, dark-themed hero section featuring a controlled grid background, gradient effects, and interactive chat elements.
 
-![image](https://github.com/user-attachments/assets/b86300cb-1ce8-4ae3-943e-f22b0ff788c1)
+![image](screenshot.png)
 
 ## Features
 - Precise 12-column grid system with subtle lines

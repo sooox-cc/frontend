@@ -2,7 +2,7 @@
 
 A sleek, modern monitoring dashboard with a dark theme and real-time metrics display.
 
-![image](https://github.com/user-attachments/assets/1e2825ef-f70d-495c-bc77-b8c33c4915c7)
+![image](screenshot.png)
 
 ## Features
 - Pure html and CSS
