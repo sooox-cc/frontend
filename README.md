@@ -25,16 +25,23 @@ A modern landing page hero section featuring:
 ## Project Structure
 ```
 frontends/
-├── dev-dashboard/          # Modern monitoring dashboard
+├── dev-dashboard/           # Modern monitoring dashboard
 │   ├── index.html
 │   ├── style.css
 │   ├── script.js
 │   └── README.md
-├── mesh-gradient-hero/     # Landing page hero section
+├── directory-viewer/        # WIP directory viewer
+│   ├── files/
+│   ├── files.json
+│   ├── index.html
+├── mesh-gradient-hero/      # Landing page hero section
 │   ├── index.html
 │   ├── style.css
 │   └── README.md
-├── [future-project]/       # Coming soon
+├── neon-search/             # Cyberpunk-inspired search interface
+│   ├── index.html
+│   ├── style.css
+│   └── README.md
 └── README.md
 ```
 
