@@ -13,6 +13,13 @@ A sleek, dark-themed monitoring dashboard featuring:
 - Glowing accents and smooth transitions
 - [View Details](./dev-dashboard/README.md)
 
+### Directory Viewer
+A work-in-progress directory viewer featuring:
+- Interactive file navigation
+- JSON-based file metadata
+- Responsive layout
+- [View Details](./directory-viewer/README.md)
+
 ### Mesh Gradient Hero
 A modern landing page hero section featuring:
 - Precise 12-column grid system
@@ -21,6 +28,15 @@ A modern landing page hero section featuring:
 - Terminal window simulation
 - Connected section design
 - [View Details](./mesh-gradient-hero/README.md)
+
+### Neon Search
+A cyberpunk-inspired search interface featuring:
+- Dark theme with neon purple accents
+- Animated grid background pattern
+- Frosted glass navigation bar
+- Gradient text effects
+- High-contrast visual hierarchy
+- [View Details](./neon-search/README.md)
 
 ## Project Structure
 ```
